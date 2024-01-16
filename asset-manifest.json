@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Listr-livedemo/static/css/main.ea063289.css",
-    "main.js": "/Listr-livedemo/static/js/main.097b4f42.js",
+    "main.js": "/Listr-livedemo/static/js/main.d441d205.js",
     "static/media/favicon.jpg": "/Listr-livedemo/static/media/favicon.165025b128fd8bc112b1.jpg",
     "index.html": "/Listr-livedemo/index.html",
     "main.ea063289.css.map": "/Listr-livedemo/static/css/main.ea063289.css.map",
-    "main.097b4f42.js.map": "/Listr-livedemo/static/js/main.097b4f42.js.map"
+    "main.d441d205.js.map": "/Listr-livedemo/static/js/main.d441d205.js.map"
   },
   "entrypoints": [
     "static/css/main.ea063289.css",
-    "static/js/main.097b4f42.js"
+    "static/js/main.d441d205.js"
   ]
 }
