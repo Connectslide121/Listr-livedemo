@@ -20,9 +20,8 @@ export default function ListForm(props) {
   };
 
   const getLists = async () => {
-    await GetLists().then((response) => {
-      setLists(response);
-    });
+    const response = await GetLists();
+    setLists(response);
   };
 
   useEffect(() => {
@@ -65,11 +64,12 @@ export default function ListForm(props) {
             >
               <option value="">--Choose option--</option>
 
-              {lists.map((list) => (
-                <option key={list.listId} value={list.listId}>
-                  {list.listName}
-                </option>
-              ))}
+              {lists &&
+                lists.map((list) => (
+                  <option key={list.listId} value={list.listId}>
+                    {list.listName}
+                  </option>
+                ))}
             </select>
           </>
         )}
