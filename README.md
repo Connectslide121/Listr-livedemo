@@ -1,4 +1,4 @@
-![alt text](https://github.com/Connectslide121/Listr-livedemo/blob/master/Connect_banner_github.png)
+![alt text](https://github.com/Connectslide121/Listr-livedemo/blob/main/Connect_banner_github.png)
 
 # Listr
 
