@@ -16,20 +16,71 @@ body {
 
 .left-pane {
   width: 30%;
+  margin: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10%;
+}
+
+.list-form-wrapper {
+  width: 100%;
+  height: 30%;
   padding: 3% 3%;
-  margin: 15px;
+  margin-bottom: 30px;
   background: #f4f5fd;
   border-radius: 10px;
   box-shadow: 3px 3px 3px 3px #ddd;
   border: 1px solid #ddd;
+  display: flex;
+}
+
+.list-form-wrapper form {
+  width: 100%;
+  padding: 5% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list-form-wrapper form label {
+  font-size: 18px;
+}
+
+.create-list-form input {
+  width: 86%;
+  margin-right: 15px;
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  box-shadow: 3px 3px 3px 3px #ddd;
+  border-radius: 5px;
+}
+
+.create-list-form button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+.open-list-form select {
+  width: 100%;
+  border: 1px solid #ddd;
+  box-shadow: 3px 3px 3px 3px #ddd;
+  border-radius: 5px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
 }
 
 .input-form-wrapper {
   width: 100%;
+  height: 70%;
+  padding: 10%;
+  background: #f4f5fd;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px #ddd;
+  border: 1px solid #ddd;
 }
 
 .input-form-wrapper form {
@@ -89,24 +140,24 @@ body {
   border: 1px solid #ddd;
 }
 
-.job-list-wrapper {
+.item-list-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 3%;
 }
 
-.job-list-header {
+.item-list-header {
   display: flex;
   gap: 1%;
-  margin: 1% 3% 1% 3%;
+  margin: 1% 3% 1% 6%;
 }
 
-.job-list-header h2 {
+.item-list-header h2 {
   font-size: 20px;
 }
 
-.job-list-subheader {
+.item-list-subheader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,7 +165,7 @@ body {
   margin: auto;
 }
 
-.job-list-subheader input {
+.item-list-subheader input {
   height: 40px;
   font-size: 16px;
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
@@ -127,13 +178,31 @@ body {
   width: 300px;
 }
 
-.job-list {
+.item-list {
   overflow-y: scroll;
   height: 80vh;
 }
 
-.job-list ul li {
+.item-list ul li {
   display: flex;
+  align-items: center;
+}
+
+.delete-item-icon {
+  padding: 15px;
+  margin: 0 0 2%;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.delete-item-icon:hover {
+  transform: scale(1.2);
+  color: #8a8a8a;
+  cursor: pointer;
+}
+
+.item-list ul li .item-wrapper {
+  display: flex;
+  width: 100%;
   gap: 2%;
   padding: 15px;
   background: #fff;
@@ -144,35 +213,39 @@ body {
   border: 1px solid #ddd;
 }
 
-.job-list ul li:hover {
+.item-list ul li .item-wrapper:hover {
   border: solid 1px #919191;
   box-shadow: 4px 4px 4px 4px #cecece;
   cursor: pointer;
 }
 
-.job-list-header-company,
-.job-company {
-  width: 10%;
+.item-list-header-title,
+.item-title {
+  width: 13%;
 }
 
-.job-list-header-description,
-.job-description {
-  width: 54%;
+.item-list-header-information,
+.item-information {
+  width: 51%;
 }
 
-.job-list-header-interest,
-.job-interest {
+.item-list-header-interest,
+.item-interest {
   width: 10%;
   text-align: center;
 }
 
-.job-list-header-status,
-.job-status {
+.item-list-header-status,
+.item-status {
   width: 10%;
   text-align: center;
 }
-.job-list-header-date,
-.job-date {
+.item-list-header-date,
+.item-date {
   width: 10%;
   text-align: center;
+}
+
+.item-information {
+  white-space: pre-line;
 }
