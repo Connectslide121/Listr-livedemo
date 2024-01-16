@@ -96,6 +96,18 @@ body {
   border: 1px solid #ddd;
 }
 
+.input-form-wrapper header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-form-wrapper header button {
+  padding: 8px;
+  font-size: 18px;
+  margin-left: 6px;
+}
+
 .input-form-wrapper h1 {
   padding: 0;
 }

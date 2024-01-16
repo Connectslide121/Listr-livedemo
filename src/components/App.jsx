@@ -35,7 +35,7 @@ function App() {
             <h1>Listr</h1>
           </div>
           <div className="list-form-wrapper">
-            <ListForm selectList={selectList} />
+            <ListForm selectList={selectList} rerenderKey={rerenderKey} />
           </div>
           <div className="input-form-wrapper">
             <ListItemInputForm

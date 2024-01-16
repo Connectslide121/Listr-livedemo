@@ -27,6 +27,16 @@ export async function GetListById(id) {
   return response.data;
 }
 
+export async function DeleteList(id) {
+  const response = await axios
+    .delete(`api/List/delete/${id}`)
+    .catch(function (error) {
+      alert("Error fetching list by id");
+      console.log("Error fetching list by id:", error);
+    });
+  return response.data;
+}
+
 export async function CreateListItem(item) {
   const response = await axios
     .post("api/ListItem/create", {

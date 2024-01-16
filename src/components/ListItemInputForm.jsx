@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import {
   CreateListItem,
+  DeleteList,
   GetListById,
   GetListItemById,
   UpdateListItem
 } from "./API";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 export default function ListItemInputForm(props) {
   const [listItemId, setListItemId] = useState("");
@@ -14,7 +18,7 @@ export default function ListItemInputForm(props) {
   const [createdAt, setCreatedAt] = useState("");
   const [listItemToOpen, setListItemToOpen] = useState({});
   const [isNewListItem, setIsNewListItem] = useState(true);
-  const [list, setList] = useState({});
+  const [list, setList] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,10 +95,32 @@ export default function ListItemInputForm(props) {
     handleOpenList(props.listId);
   }, [props.listId]);
 
+  const handleEditList = () => {};
+
+  const handleDeleteListButtonClick = async () => {
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete the list?"
+    );
+
+    if (isConfirmed) {
+      await DeleteList(list.listId);
+      setList({});
+      props.refreshList();
+    }
+  };
+
   return (
     <>
       <header>
         <h1>{list.listName}</h1>
+        <div>
+          <button title="Edit list name" onClick={handleEditList}>
+            <FontAwesomeIcon icon={faPen} />
+          </button>
+          <button title="Delete list" onClick={handleDeleteListButtonClick}>
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </div>
       </header>
 
       <form onSubmit={handleSubmit}>

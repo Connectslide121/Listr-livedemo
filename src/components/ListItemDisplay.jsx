@@ -23,10 +23,16 @@ export default function ListItemDisplay(props) {
 
   const handleDeleteItemButtonClick = async (listItemId) => {
     if (listId) {
-      await DeleteListItem(listItemId);
-      GetListItemsByListId(listId).then((listItems) => {
-        setListItems(listItems);
-      });
+      const isConfirmed = window.confirm(
+        "Are you sure you want to delete the list item?"
+      );
+
+      if (isConfirmed) {
+        await DeleteListItem(listItemId);
+        GetListItemsByListId(listId).then((listItems) => {
+          setListItems(listItems);
+        });
+      }
     }
   };
 

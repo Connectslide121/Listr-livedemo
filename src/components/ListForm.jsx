@@ -28,6 +28,10 @@ export default function ListForm(props) {
   }, []);
 
   useEffect(() => {
+    getLists();
+  }, [props.rerenderKey]);
+
+  useEffect(() => {
     setLoading(false);
   }, [lists]);
 
