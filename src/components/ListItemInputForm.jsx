@@ -10,6 +10,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 
 export default function ListItemInputForm(props) {
   const [listItemId, setListItemId] = useState("");
@@ -197,7 +198,9 @@ export default function ListItemInputForm(props) {
           <option value="Created">Created</option>
           <option value="Completed">Completed</option>
         </select>
-        <button typeof="submit">Save</button>
+        <button typeof="submit">
+          <FontAwesomeIcon icon={faFloppyDisk} />
+        </button>
       </form>
     </>
   );

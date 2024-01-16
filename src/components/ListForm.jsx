@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CreateList, GetLists } from "./API";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function ListForm(props) {
   const [listName, setListName] = useState("");
@@ -47,7 +49,7 @@ export default function ListForm(props) {
           required
         />
         <button type="submit" title="New List">
-          +
+          <FontAwesomeIcon icon={faPlus} />{" "}
         </button>
       </div>
       <div className="open-list-form">
