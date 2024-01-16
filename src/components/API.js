@@ -27,12 +27,26 @@ export async function GetListById(id) {
   return response.data;
 }
 
+export async function UpdateList(list) {
+  const response = await axios
+    .put(`api/List/update`, {
+      listId: list.listId,
+      listName: list.listName,
+      createdAt: list.createdAt
+    })
+    .catch(function (error) {
+      alert("Error updating list");
+      console.log("Error updating list:", error);
+    });
+  return response.data;
+}
+
 export async function DeleteList(id) {
   const response = await axios
     .delete(`api/List/delete/${id}`)
     .catch(function (error) {
-      alert("Error fetching list by id");
-      console.log("Error fetching list by id:", error);
+      alert("Error deleting list");
+      console.log("Error deleting list:", error);
     });
   return response.data;
 }

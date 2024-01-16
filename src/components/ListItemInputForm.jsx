@@ -4,6 +4,7 @@ import {
   DeleteList,
   GetListById,
   GetListItemById,
+  UpdateList,
   UpdateListItem
 } from "./API";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,6 +20,8 @@ export default function ListItemInputForm(props) {
   const [listItemToOpen, setListItemToOpen] = useState({});
   const [isNewListItem, setIsNewListItem] = useState(true);
   const [list, setList] = useState([]);
+  const [listName, setListName] = useState("");
+  const [isEditingListName, setIsEditingListName] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,6 +79,7 @@ export default function ListItemInputForm(props) {
       setCreatedAt("");
       setIsNewListItem(true);
       setListItemToOpen({});
+      setIsEditingListName(false);
       props.refreshList();
       props.handleUpdate();
     }
@@ -95,8 +99,6 @@ export default function ListItemInputForm(props) {
     handleOpenList(props.listId);
   }, [props.listId]);
 
-  const handleEditList = () => {};
-
   const handleDeleteListButtonClick = async () => {
     const isConfirmed = window.confirm(
       "Are you sure you want to delete the list?"
@@ -109,19 +111,65 @@ export default function ListItemInputForm(props) {
     }
   };
 
+  const handleEditList = () => {
+    setIsEditingListName(true);
+    setListName(list.listName);
+  };
+
+  const handleListNameChange = (e) => {
+    setListName(e.target.value);
+  };
+
+  const handleSaveListName = async () => {
+    const listToUpdate = {
+      listId: list.listId,
+      listName: listName,
+      createdAt: list.createdAt
+    };
+    await UpdateList(listToUpdate);
+
+    setList(listToUpdate);
+    setIsEditingListName(false);
+    props.refreshList();
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSaveListName();
+    }
+  };
+
   return (
     <>
-      <header>
-        <h1>{list.listName}</h1>
-        <div>
-          <button title="Edit list name" onClick={handleEditList}>
-            <FontAwesomeIcon icon={faPen} />
-          </button>
-          <button title="Delete list" onClick={handleDeleteListButtonClick}>
-            <FontAwesomeIcon icon={faTrash} />
-          </button>
-        </div>
-      </header>
+      {list.listName && (
+        <header>
+          {isEditingListName ? (
+            <input
+              type="text"
+              value={listName}
+              onChange={handleListNameChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleSaveListName}
+              autoFocus
+            />
+          ) : (
+            <>
+              <h1>{list.listName}</h1>
+              <div>
+                <button title="Edit list name" onClick={handleEditList}>
+                  <FontAwesomeIcon icon={faPen} />
+                </button>
+                <button
+                  title="Delete list"
+                  onClick={handleDeleteListButtonClick}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </div>
+            </>
+          )}
+        </header>
+      )}
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="itemTitleInput">Title</label>
