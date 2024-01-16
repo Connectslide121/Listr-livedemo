@@ -1,8 +1,7 @@
 {
-  "homepage": "https://connectslide121.github.io/Listr",
+  "homepage": "https://connectslide121.github.io/Listr-livedemo",
   "name": "listr",
   "version": "0.1.0",
-  "proxy": "https://localhost:7115",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
