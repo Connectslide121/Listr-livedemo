@@ -6,6 +6,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 export default function ListItemDisplay(props) {
   const [listItems, setListItems] = useState([]);
   const [listId, setListId] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     if (listId) {
@@ -49,12 +50,26 @@ export default function ListItemDisplay(props) {
     (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
   );
 
+  const handleSearchInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  const filteredListItems = sortedListItems.filter((item) =>
+    Object.values(item).some((value) =>
+      value.toString().toLowerCase().includes(searchInput.toLowerCase())
+    )
+  );
   return (
     <>
       <div className="item-list-wrapper">
         <div className="item-list-subheader">
-          <h3>Count: {listItems.length}</h3>
-          <input type="text" />
+          <h3>Count: {filteredListItems.length}</h3>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchInput}
+            onChange={handleSearchInputChange}
+          />
         </div>
 
         <div className="item-list-header">
@@ -67,7 +82,7 @@ export default function ListItemDisplay(props) {
 
         <div className="item-list">
           <ul>
-            {sortedListItems.map((listItem) => (
+            {filteredListItems.map((listItem) => (
               <li key={listItem.listItemId}>
                 <div
                   className="delete-item-icon"

@@ -3,6 +3,7 @@ import ListItemInputForm from "./ListItemInputForm";
 import ListItemDisplay from "./ListItemDisplay";
 import "../styles.css";
 import { useState } from "react";
+import logo from "./favicon.jpg";
 
 function App() {
   const [rerenderKey, setRerenderKey] = useState(0);
@@ -29,6 +30,10 @@ function App() {
     <>
       <div className="container">
         <div className="left-pane">
+          <div className="site-header">
+            <img src={logo} alt="logo" />
+            <h1>Listr</h1>
+          </div>
           <div className="list-form-wrapper">
             <ListForm selectList={selectList} />
           </div>

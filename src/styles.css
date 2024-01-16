@@ -19,13 +19,26 @@ body {
   margin: 15px;
   display: flex;
   flex-direction: column;
+}
+
+.site-header {
+  height: 5%;
+  display: flex;
   align-items: center;
+  justify-content: safe;
+  gap: 5%;
+  margin-left: 10%;
+  margin-bottom: 15px;
+}
+
+.site-header img {
+  height: 100%;
 }
 
 .list-form-wrapper {
   width: 100%;
-  height: 30%;
-  padding: 3% 3%;
+  height: 25%;
+  padding: 1% 2%;
   margin-bottom: 30px;
   background: #f4f5fd;
   border-radius: 10px;
@@ -47,7 +60,7 @@ body {
 }
 
 .create-list-form input {
-  width: 86%;
+  width: 80%;
   margin-right: 15px;
   display: inline-block;
   padding: 10px 15px;
@@ -75,12 +88,16 @@ body {
 
 .input-form-wrapper {
   width: 100%;
-  height: 70%;
-  padding: 10%;
+  height: 65%;
+  padding: 5% 10%;
   background: #f4f5fd;
   border-radius: 10px;
   box-shadow: 3px 3px 3px 3px #ddd;
   border: 1px solid #ddd;
+}
+
+.input-form-wrapper h1 {
+  padding: 0;
 }
 
 .input-form-wrapper form {
