@@ -3,9 +3,12 @@ import {
   AllListItems,
   AllLists,
   ListById,
+  ListItemById,
   ListItemsByListId,
   ModifyList,
-  RemoveList
+  ModifyListItem,
+  RemoveList,
+  RemoveListItem
 } from "./Database";
 
 export async function CreateList(listName) {
@@ -38,32 +41,13 @@ export async function GetListItemsByListId(id) {
 }
 
 export async function GetListItemById(id) {
-  // const response = await axios
-  //   .get(`api/ListItem/ListItem/${id}`)
-  //   .catch(function (error) {
-  //     alert("Error fetching list item by id");
-  //     console.log("Error fetching list item by id:", error);
-  //   });
-  // return response.data;
+  return ListItemById(id);
 }
 
 export async function UpdateListItem(item) {
-  // const response = await axios.put(`api/ListItem/update`, {
-  //   listItemId: item.listItemId,
-  //   listId: item.listId,
-  //   title: item.title,
-  //   information: item.information,
-  //   status: item.status,
-  //   createdAt: item.createdAt
-  // });
+  return ModifyListItem(item);
 }
 
 export async function DeleteListItem(id) {
-  // const response = await axios
-  //   .delete(`api/ListItem/Delete/${id}`)
-  //   .catch(function (error) {
-  //     alert("Error deteling item");
-  //     console.log("Error deleting item:", error);
-  //   });
-  // return response.data;
+  return RemoveListItem(id);
 }

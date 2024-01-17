@@ -181,7 +181,6 @@ export function ModifyList(updatedList) {
     (list) => list.listId === updatedList.listId
   );
   allLists[listIndex].listName = updatedList.listName;
-  console.log(allLists);
   return allLists;
 }
 
@@ -219,4 +218,28 @@ export function ListItemsByListId(id) {
     (listItem) => listItem.listId == id
   );
   return matchingListItems;
+}
+
+export function ListItemById(id) {
+  const listItem = allListItems.find((listItem) => listItem.listItemId == id);
+  return listItem;
+}
+
+export function ModifyListItem(updatedListItem) {
+  console.log(updatedListItem);
+
+  const listItemIndex = allListItems.findIndex(
+    (listItem) => listItem.listItemId === updatedListItem.listItemId
+  );
+  allListItems[listItemIndex].title = updatedListItem.title;
+  allListItems[listItemIndex].information = updatedListItem.information;
+  allListItems[listItemIndex].status = updatedListItem.status;
+  allListItems[listItemIndex].updatedAt = new Date().toISOString();
+
+  return allListItems;
+}
+
+export function RemoveListItem(id) {
+  allListItems = allListItems.filter((listItem) => listItem.listItemId !== id);
+  return allListItems;
 }
