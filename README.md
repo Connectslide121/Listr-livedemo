@@ -1,6 +1,6 @@
 ![alt text](https://github.com/Connectslide121/Listr-livedemo/blob/main/Connect_banner_github.png)
 
-# Listr
+# Listr - livedemo
 
 A multi purpose list creator. Can be used to make TO-DO lists, bug trackers, general lists... 
 This is just a live demo, there in no back end. The data gets reset when page reloads.
